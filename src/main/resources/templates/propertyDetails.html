@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Detalles</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link th:href="@{/css/detalles.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body th:object="${property}">
+	<div class="nav" id="navbar">
+		<div class="ContainerNavbar">
+			<a href="#" class="iconnav"><img th:src="@{/image/alquila.png}"
+				id="marca"></a>
+			<div class="buttons">
+				<a name="btnB" href="#"><input type="button" name="Crearanuncio"
+					id="buscar"><label for="buscar" name="label" id="buscador">BUSCAR</label></a>
+				<a name="btnC" th:href="@{/property/add}"><input type="button"
+					name="Crear anuncio" id="anuncio"><label for="anuncio"
+					name="label" id="formulario">CREAR ANUNCIO</label></a>
+			</div>
+		</div>
+	</div>
+	<div class="Imagecontainer">
+		<div class="image1"></div>
+		<div class="image2">
+			<img>
+		</div>
+		<div class="image3"></div>
+		<div class="image4"></div>
+		<div class="image5"></div>
+	</div>
+	<div class="Container">
+		<div class=GridContainer>
+			<div class="ContactInfo">
+				<ul>
+					<li>Teléfono</li>
+					<li>Correo</li>
+					<li>Dirección</li>
+					<li>Redes sociales</li>
+				</ul>
+			</div>
+			<div class="basicdata">
+				<div class="rent">
+					<span class="tags" name="departamento">DEPARTAMENTO</span> <span
+						class="title">ALQUILER MONTO</span><span
+						th:text="'$' + *{price}" id="alquiler"></span> <span
+						class="title">EXPENSAS</span><span id="expensas">$6000</span>
+				</div>
+				<div class="datacontainer">
+					<div class="rooms">
+						<label class="subtitle"><span>ZONAS</span></label> <label><span
+							name="zonas" th:text="*{rooms} + ' Ambientes'"></span></label> <label><span
+							name="zonas">2 Dormitorios</span></label>
+					</div>
+					<div class="services">
+						<label class="subtitle">
+							<span>SERVICIOS</span>
+						</label>
+						<!-- xxxx -->
+						<th:block th:each="dt : *{pDetails}">
+							<input class="check" name="baño" th:id="${dt.name}" type="checkbox" th:value="${dt.name}" checked />
+						    <label th:for="${dt.name}">
+						    	<span class="servicios" th:text="${dt.name}">Baño adicional</span>
+						    </label>
+					    </th:block>
+					    <!-- xxxx --> 
+						<div>
+							<label>
+								<p name="otros">
+									<span name="text">Otros:</span>
+									<span>Incluye termotanque y bajomesada</span>
+								</p>
+							</label>
+						</div>
+					</div>
+					<hr>
+					<div class="address">
+						<label class="subtitle">
+							<span id="direccion">DIRECCIÓN</span>
+						</label>
+						<span class="dire" th:text="*{aStreet}" ></span>
+						<p name="otros" th:each="d : *{aDetails}">
+							<span name="text" th:text="${d.name}"></span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="LegalInfo">
+				<h2>INFORMACIÓN LEGAL</h2>
+				<p th:text="*{description}">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut.
+				</p>
+				<hr>
+			</div>
+			<div class="tagscontainer">
+				<span name="tags">#Mascotas</span> <span name="tags">#ConExpensas</span>
+				<span name="tags">#Garante</span> <span name="tags">#Mascotas</span>
+			</div>
+		</div>
+		<footer>
+			<div class="footer">
+				<div class="footercontainer">
+					<ul>
+						<li>¿Quienes somos?</li>
+						<li>Preguntas frecuentes</li>
+						<li>Terminos y condiciones de uso</li>
+						<li>Crear anuncio</li>
+					</ul>
+					<div class="redes">
+						<span>Comunicate con nosotros</span>
+						<div class="icons">
+							<a href="#"><img th:src="@{/image/003-facebook.png}"></a> <a
+								href="#"><img th:src="@{/image/002-twitter.png}"></a> <a
+								href="#"><img th:src="@{/image/001-gmail.png}"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script>
+        $('input[type="checkbox"]').on('change', function() {
+            $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+        });
+    </script>
+</body>
+</html>

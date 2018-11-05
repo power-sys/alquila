@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org" 
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="nav" id="navbar">
+        <div class="ContainerNavbar">
+            <a href="#" class="iconnav"><img src="img/alquila.png" id="marca"></a>
+            <div class="buttons">
+            <a name="btnC" th:href="@{/property/add}">
+	            <input type="button" name="Crear anuncio" id="anuncio">
+	            <label for="anuncio" name="label" id="formulario">
+	            	CREAR ANUNCIO
+	            </label>
+            </a>
+            </div>
+        </div>
+    </div>
+    <div class="firstContainer">
+    <div class="card_container">
+    <h1>¡ÚLTIMOS ANUNCIOS!</h1>
+    <div class="card" th:each="i: ${inmueble}">
+        <div class="card image" style="background-image: url(img/edificio7.jpg)">
+        </div>
+        <div class="card_text_container">
+        <div class="card_title">
+            <span class="card_title text" id="dpto" th:text="${i.type}">DEPARTAMENTO</span> 
+                   <span class="title">ALQUILER</span><span id="alquiler" th:text="${i.price}">$6500</span>
+                    
+            
+        </div>
+        <div class="card_address">
+        <div class="address">
+            <h3 class="subtitle">DIRECCIÓN:</h3>
+                    
+                    <span class="dire"th:text="${i.adress.number}">5215</span>
+                        
+                        <h3 class="subtitle">DETALLES:</h3>
+                   		<p class="dire" name="otros" th:each="d:${i.details}">
+                   		<span class="otros" th:text="${d.name}">Otros:</span>
+                   		<span class="dire" th:text="${d.value}"> 
+                   			A 200  mts de la UNNE, frente a la facultad de ingeniería.
+                   		</span>
+                   		</p>
+        </div>
+                
+        </div>
+        <div class="card_actions">
+            <span class="date">29/10/2018</span>
+             <a name="btnB" th:href="@{'/property/' + ${i.id}}">
+             	<input type="button" name="Crearanuncio" id="buscar">
+             	<label for="buscar" name="label" id="buscador">MAS DETALLES</label>
+             </a>
+        </div>
+        </div>
+    </div>
+    </div>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="footercontainer">
+                    <ul>
+                        <li>¿Quienes somos?</li>
+                        <li>Preguntas frecuentes</li>
+                        <li>Terminos y condiciones de uso</li>
+                        <li>Crear anuncio</li>
+                    </ul>
+                        <div class="redes">
+                        <span>Comunicate con nosotros</span>
+                        <div class="icons"><a href="#"><img src="img/003-facebook.png"></a>
+                     <a href="#"><img src="img/002-twitter.png"></a>
+                     <a href="#"><img src="img/001-gmail.png"></a>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>
