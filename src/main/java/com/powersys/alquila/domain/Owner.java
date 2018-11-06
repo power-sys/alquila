@@ -26,6 +26,8 @@ public class Owner {
 	
 	private String adress;
 	
+	private UserType type;
+	
 	public Owner() {
 		
 	}
@@ -84,5 +86,13 @@ public class Owner {
 
 	public void setAdress(String adress) {
 		this.adress = adress;
+	}
+
+	public UserType getType() {
+		return type;
+	}
+
+	public void setType(UserType type) {
+		this.type = type;
 	}
 }
