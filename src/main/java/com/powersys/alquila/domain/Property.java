@@ -1,5 +1,6 @@
 package com.powersys.alquila.domain;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,8 +45,10 @@ public class Property {
 	private PlaceType type;
 
 	@ElementCollection
-	private List<String> images = new ArrayList<>();
-
+	private List<Image> images = new ArrayList<>();
+	
+	private LocalDateTime publishDate;
+	
 	public Long getId() {
 		return id;
 	}
@@ -110,12 +113,27 @@ public class Property {
 		this.type = type;
 	}
 
-	public List<String> getImages() {
+	public List<Image> getImages() {
 		return images;
 	}
 
-	public void addImage(String imageUrl) {
-		this.images.add(imageUrl);
+	public void addImage(Image image) {
+		this.images.add(image);
+	}
+	
+	public void addImage(String path, String alt) {
+		Image i = new Image();
+		i.setFileUri(path);
+		i.setDescription(alt);
+		this.images.add(i);
+	}
+
+	public LocalDateTime getPublishDate() {
+		return publishDate;
+	}
+
+	public void setPublishDate(LocalDateTime publishDate) {
+		this.publishDate = publishDate;
 	}
 	
 	
