@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "place")
+@Table(name = "property")
 public class Property {
 
 	@Id
@@ -135,6 +135,4 @@ public class Property {
 	public void setPublishDate(LocalDateTime publishDate) {
 		this.publishDate = publishDate;
 	}
-	
-	
 }

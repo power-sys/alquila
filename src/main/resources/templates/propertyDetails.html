@@ -8,19 +8,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link th:href="@{/css/detalles.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/detalles.css}" rel="stylesheet" type="text/css" />
 </head>
 
 <body th:object="${property}">
 	<div class="nav" id="navbar">
 		<div class="ContainerNavbar">
-			<a href="#" class="iconnav"><img th:src="@{/image/alquila.png}"
-				id="marca"></a>
+			<a href="#" class="iconnav">
+				<img th:src="@{/image/alquila.png}" id="marca" />
+			</a>
 			<div class="buttons">
-				<a name="btnB" href="#"><input type="button" name="Crearanuncio"
-					id="buscar"><label for="buscar" name="label" id="buscador">BUSCAR</label></a>
+				<a name="btnB" href="#"><input type="button" name="Crearanuncio" id="buscar" />
+				<label for="buscar" name="label" id="buscador">BUSCAR</label></a>
 				<a name="btnC" th:href="@{/property/add}"><input type="button"
-					name="Crear anuncio" id="anuncio"><label for="anuncio"
+					name="Crear anuncio" id="anuncio" /><label for="anuncio"
 					name="label" id="formulario">CREAR ANUNCIO</label></a>
 			</div>
 		</div>
@@ -28,14 +29,14 @@
 	<div class="Imagecontainer">
 		<div class="image1"></div>
 		<div class="image2">
-			<img>
+			<img />
 		</div>
 		<div class="image3"></div>
 		<div class="image4"></div>
 		<div class="image5"></div>
 	</div>
 	<div class="Container">
-		<div class=GridContainer>
+		<div class="GridContainer">
 			<div class="ContactInfo">
 				<ul>
 					<li>Teléfono</li>
@@ -63,7 +64,7 @@
 						</label>
 						<!-- xxxx -->
 						<th:block th:each="dt : *{pDetails}">
-							<input class="check" name="baño" th:id="${dt.name}" type="checkbox" th:value="${dt.name}" checked />
+							<input class="check" name="baño" th:id="${dt.name}" type="checkbox" th:value="${dt.name}" checked="checked" />
 						    <label th:for="${dt.name}">
 						    	<span class="servicios" th:text="${dt.name}">Baño adicional</span>
 						    </label>
@@ -78,7 +79,7 @@
 							</label>
 						</div>
 					</div>
-					<hr>
+					<hr />
 					<div class="address">
 						<label class="subtitle">
 							<span id="direccion">DIRECCIÓN</span>
@@ -98,7 +99,7 @@
 					enim ad minim veniam, quis nostrud exercitation ullamco laboris
 					nisi ut.
 				</p>
-				<hr>
+				<hr />
 			</div>
 			<div class="tagscontainer">
 				<span name="tags">#Mascotas</span> <span name="tags">#ConExpensas</span>
@@ -117,9 +118,9 @@
 					<div class="redes">
 						<span>Comunicate con nosotros</span>
 						<div class="icons">
-							<a href="#"><img th:src="@{/image/003-facebook.png}"></a> <a
-								href="#"><img th:src="@{/image/002-twitter.png}"></a> <a
-								href="#"><img th:src="@{/image/001-gmail.png}"></a>
+							<a href="#"><img th:src="@{/image/003-facebook.png}" /></a>
+							<a href="#"><img th:src="@{/image/002-twitter.png}" /></a>
+							<a href="#"><img th:src="@{/image/001-gmail.png}" /></a>
 						</div>
 					</div>
 				</div>
