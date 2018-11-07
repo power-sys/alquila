@@ -17,7 +17,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "place")
+@Table(name = "property")
 public class Property {
 
 	@Id
@@ -117,6 +117,4 @@ public class Property {
 	public void addImage(String imageUrl) {
 		this.images.add(imageUrl);
 	}
-	
-	
 }
